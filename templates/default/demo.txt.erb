@@ -1,0 +1,16 @@
+This is a demo of using partials in Chef
+
+We can render a partial template using the render method:
+
+<%= render "simple.txt.erb" %>
+
+We can also pass in some custom variables:
+
+<%= render "simple-variables.txt.erb", :variables => {:user => Etc.getlogin } %>
+
+We can also combine partials with normal Erb control flow:
+
+<% @partials.each do |partial, message| %>
+  Here is <%= partial %>
+<%= render partial, :variables => {:message => message} %>
+<% end %>
